@@ -22,19 +22,18 @@ print(theta)
 def modele(X, theta):
     return X.dot(theta)
 
-
-def cost_function(X, y, theta):
+def fonction_cout(X, y, theta):
     m = len(y)
     return 1/(2*m) * np.sum((modele(X, theta) - y)**2)
 
-def grad(X, y, theta):
+def gradient(X, y, theta):
     m = len(y)
     return 1/m * X.T.dot(modele(X, theta) - y)
 
 def gradient_descent(X, y, theta, learning_rate, n_iteration):
 
     for i in range(0, n_iteration):
-        theta = theta - learning_rate * grad(X, y, theta)
+        theta = theta - learning_rate * gradient(X, y, theta)
 
     return theta
 
